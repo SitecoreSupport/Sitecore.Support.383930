@@ -462,7 +462,9 @@
       if (month && $scw(month).val()) {
         if ($scw(day).find('option').length > 0 && $scw(year).find('option').length > 0) {
           var days = this.getDays(month.val(), year.val());
-          if ($scw(day).find('option').length + 1 != days) {
+          // bug #383930
+          // before: ($scw(day).find('option').length + 1 != days)
+          if ($scw(day).find('option').length != days) {
 
             var selectedIndex = $scw(day)[0].selectedIndex;
 
